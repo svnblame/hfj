@@ -19,6 +19,15 @@ public class GC {
         gc1 = doStuff();
 
         // plug in code here
-        gc2 = null;
+        //copyGC = null; // No - this line attempts to access a variable that is out of scope
+        gc2 = null;    // OK - gc2 was the only reference variable referring to that object
+        //newGC = gc3;   // No - another out of scope variable
+        gc1 = null;    // OK - gc1 had the only reference because newGC is out of scope
+        //newGC = null;  // No - newGC is out of scope
+        gc4 = null;    // No - gc3 is still referring to that object
+        gc3 = gc2;     // No - gc4 is still referring to that object
+        gc1 = gc4;     // OK - Reassigning the only reference to that object
+        gc3 = null;    // No = gc4 is still referring to that object
+
     }
 }
