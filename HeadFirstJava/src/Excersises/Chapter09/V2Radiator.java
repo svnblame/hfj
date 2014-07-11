@@ -31,6 +31,7 @@ class SimUnit {
     String botType;
     SimUnit(String type) {
         botType = type;
+        System.out.println(botType + " botType created.");
     }
     int powerUse() {
         if ("Retention".equals(botType)) {
