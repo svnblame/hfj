@@ -26,13 +26,30 @@ public class MiniMiniMusicApp {
             // Sequence and the MIDI data lives in the Track.
             Track track = seq.createTrack();
 
-            // Put some MidiEvents into the Track. This part is mostly
-            // Ready-baked code. The only thing we care about are the
-            // arguments to the setMessage() method, and the arguments to
-            // the MidiEvent constructor.
+            // Put some MidiEvents into the Track.
+            // The only thing we care about are the arguments to the setMessage()
+            // method, and the arguments to the MidiEvent constructor.
+
+            // Make a Message
             ShortMessage a = new ShortMessage();
+
+            // Put the Instruction in the message
+            // This message says, "start playing note 44"
             a.setMessage(144, 1, 44, 100);
+
+            // Make a new MidiEvent using the Message
+            // The instructions are in the message, but the MidiEvent adds the
+            // moment in time the instruction should be triggered. This MidiEvent
+            // says to trigger message 'a' at the first beat (beat 1).
             MidiEvent noteOn = new MidiEvent(a, 1);
+
+            // Add the MidiEvent to the Track
+            // A Track holds all the MidiEvent objects. The Sequence organizes them
+            // according to when each event is supposed to happen, and then the
+            // Sequencer plays them back in that order. You can have lots of
+            // events happening at the exact same moment in time. For example,
+            // you might want two notes played simultaneously, or even different
+            // instruments playing different sounds at the same time.
             track.add(noteOn);
 
             ShortMessage b = new ShortMessage();
