@@ -5,10 +5,10 @@ import javax.sound.midi.*;
 /**
  * Created by Gene on 8/28/2014.
  */
-public class MiniMiniMusicApp {
+public class MiniMusicApp {
 
     public static void main(String[] args) {
-        MiniMiniMusicApp mini = new MiniMiniMusicApp();
+        MiniMusicApp mini = new MiniMusicApp();
         mini.play();
     }
 
@@ -35,7 +35,7 @@ public class MiniMiniMusicApp {
 
             // Put the Instruction in the message
             // This message says, "start playing note 44"
-            a.setMessage(144, 1, 44, 100);
+            a.setMessage(144, 1, 20, 100);
 
             // Make a new MidiEvent using the Message
             // The instructions are in the message, but the MidiEvent adds the
@@ -53,8 +53,8 @@ public class MiniMiniMusicApp {
             track.add(noteOn);
 
             ShortMessage b = new ShortMessage();
-            b.setMessage(128, 1, 44, 100);
-            MidiEvent noteOff = new MidiEvent(b, 16);
+            b.setMessage(192, 1, 102, 0);
+            MidiEvent noteOff = new MidiEvent(b, 3);
             track.add(noteOff);
 
             // Give the Sequence to the Sequencer (like putting the CD in the
