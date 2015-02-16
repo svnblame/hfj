@@ -13,7 +13,7 @@ public class WriteAFile {
             FileWriter writer = new FileWriter("Foo.txt");
 
             // The write() method takes a string
-            writer.write("Hello Foo!");
+            writer.write("Hello Foo Bar??");
 
             // Close it when your done!
             writer.close();
